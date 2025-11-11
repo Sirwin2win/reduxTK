@@ -9,9 +9,14 @@ import Contact from './pages/Contact'
 import Blog from './pages/Blog'
 import Products from './pages/Products'
 import New from './pages/New'
+import { Provider } from 'react-redux'
+import store from './app/store'
+import ProductDetail from './components/productDetail'
+
 
 const App = () => {
   return (
+    <Provider store={store}>
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
@@ -20,11 +25,13 @@ const App = () => {
         <Route path='/contact' element={<Contact />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/product' element={<Products />} />
+        <Route path='/product/:id' element={<ProductDetail />} />
         <Route path='/new' element={<New />} />
         </Route>
       </Routes>
      
     </BrowserRouter>
+    </Provider>
   )
 }
 
