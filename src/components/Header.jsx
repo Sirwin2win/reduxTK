@@ -2,10 +2,19 @@ import React, {useContext} from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo.jpg'
 // import ThemeContext from '../ThemeContext'
+import { IoMdCart } from "react-icons/io";
+import { useSelector } from 'react-redux';
+// import { totalQty } from '../features/carts/cartSlice';
+
+
+
 
 
 const Header = () => {
 
+  const {totalQuantity} = useSelector((state)=>state.carts)
+
+  console.log(totalQuantity)
   // const {theme, toggleTheme} = useContext(ThemeContext)
 
     const myStyle = {
@@ -54,6 +63,9 @@ const Header = () => {
         </li>
         <li className="nav-item">
           <Link style={myStyle} to={'/new'} className="nav-link text-light" >New</Link>
+        </li>
+        <li className="nav-item">
+          <Link style={myStyle} to={'/cart'} className="nav-link text-light" ><IoMdCart className='text-danger' /> {totalQuantity}</Link>
         </li>
       </ul>
       <form className="d-flex" role="search">

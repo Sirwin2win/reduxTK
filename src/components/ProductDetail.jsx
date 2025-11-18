@@ -2,6 +2,15 @@ import {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { fetchOne } from '../features/products/singleSlice'
+import { addToCart } from '../features/carts/cartSlice'
+
+
+// const info = [
+//   {id:1, title:'jkhfjhdsjhfdks',image:'jkhfjhdsjfkhds'},
+//   {id:3, title:'jkhfjhdsjhfdks',image:'jkhfjhdsjfkhds', quantity:1},
+//   {id:1, title:'jkhfjhdsjhfdks',image:'jkhfjhdsjfkhds'},
+//   {id:1, title:'jkhfjhdsjhfdks',image:'jkhfjhdsjfkhds'},
+// ]
 
 
 const ProductDetail = () => {
@@ -14,7 +23,7 @@ const ProductDetail = () => {
             dispatch(fetchOne(id))
         }
     },[id, dispatch])
-    // console.log(product)
+    console.log(product)
     if(status==='loading'){
         return <h1>Loading...</h1>
     }
@@ -32,6 +41,7 @@ const ProductDetail = () => {
         <p className="card-text">{product.description}</p>
         <p className="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
       </div>
+      <button className='btn btn-danger' onClick={()=>dispatch(addToCart(product))}>Add To Cart</button>
     </div>
   </div>
 </div>

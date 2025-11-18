@@ -12,6 +12,7 @@ import New from './pages/New'
 import { Provider } from 'react-redux'
 import store from './app/store'
 import ProductDetail from './components/productDetail'
+import CartPage from './components/CartPage'
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/product' element={<Products />} />
         <Route path='/product/:id' element={<ProductDetail />} />
         <Route path='/new' element={<New />} />
+        <Route path='/cart' element={<CartPage />} />
         </Route>
       </Routes>
      
