@@ -5,13 +5,6 @@ import { fetchOne } from '../features/products/singleSlice'
 import { addToCart } from '../features/carts/cartSlice'
 
 
-// const info = [
-//   {id:1, title:'jkhfjhdsjhfdks',image:'jkhfjhdsjfkhds'},
-//   {id:3, title:'jkhfjhdsjhfdks',image:'jkhfjhdsjfkhds', quantity:1},
-//   {id:1, title:'jkhfjhdsjhfdks',image:'jkhfjhdsjfkhds'},
-//   {id:1, title:'jkhfjhdsjhfdks',image:'jkhfjhdsjfkhds'},
-// ]
-
 
 const ProductDetail = () => {
     const {product, status,error} = useSelector((state)=>state.product)

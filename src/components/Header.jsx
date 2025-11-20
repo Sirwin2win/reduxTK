@@ -4,7 +4,9 @@ import logo from '../assets/images/logo.jpg'
 // import ThemeContext from '../ThemeContext'
 import { IoMdCart } from "react-icons/io";
 import { useSelector } from 'react-redux';
+import SearchBar from './SearchBar';
 // import { totalQty } from '../features/carts/cartSlice';
+
 
 
 
@@ -68,10 +70,11 @@ const Header = () => {
           <Link style={myStyle} to={'/cart'} className="nav-link text-light" ><IoMdCart className='text-danger' /> {totalQuantity}</Link>
         </li>
       </ul>
-      <form className="d-flex" role="search">
+      {/* <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button className="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      </form> */}
+      <SearchBar />
     </div>
   </div>
 </nav>

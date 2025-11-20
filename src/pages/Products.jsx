@@ -7,6 +7,12 @@ import { Link } from 'react-router-dom'
 const Products = () => {
   const dispatch = useDispatch()
   const {products, status, error} = useSelector((state)=>state.products)
+  const searchItem = useSelector((state)=>state.filter.searchItem)
+
+  const filteredProducts = products.filter((p)=>
+    p.title.toLowerCase().includes(searchItem.toLowerCase()) ||
+    p.category.toLowerCase().includes(searchItem.toLowerCase())
+  )
   useEffect(()=>{
     if(status==='idle'){
       dispatch(fetchProducts())
@@ -23,7 +29,7 @@ const Products = () => {
     <div className='container'>
       <h1>Products Page</h1>
       <div className="row">
-      {products.map((product)=>(
+      {filteredProducts.map((product)=>(
         <div key={product.id} className='col-sm-4 my-5'>
           {/* <h5>{product.title}</h5> */}
           <div className="card" style={{width: '18rem'}}>
